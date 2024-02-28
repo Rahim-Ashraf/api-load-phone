@@ -1,4 +1,4 @@
-const detailsModal = async(s) => {
+const detailsModal = async (s) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${s}`);
     const data = await res.json();
     const phoneDetails = data.data;
@@ -43,11 +43,14 @@ const loadPhones = (phones) => {
 }
 
 const allPhones = (phones) => {
+    const showMore = document.getElementById("show-more");
     if (phones.length > 6) {
         const SlicePhones = phones.slice(0, 6)
         loadPhones(SlicePhones)
-        const showMore = document.getElementById("show-more");
         showMore.classList.remove("hidden")
+    } else {
+        loadPhones(phones);
+        showMore.classList.add("hidden")
     }
 }
 const loadPhone = async (phones) => {
@@ -55,7 +58,8 @@ const loadPhone = async (phones) => {
     const data = await res.json();
     allPhones(data.data)
 }
-loadPhone("iphone");
+loadPhone("iphone")
+// loadPhone("iphone");
 const search = () => {
     const searchInput = document.getElementById("search-input");
     const searchValue = searchInput.value;
