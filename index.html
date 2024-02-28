@@ -14,13 +14,35 @@
 
     </header>
     <main>
-        <div class="py-4">
-            <input id="search-input" type="text" placeholder="Search" class="input input-bordered w-full max-w-xs bg-gray-300 border-none" />
+        <div>
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="phone_details_modal" class="modal">
+                <div class="modal-box">
+                    <div id="modal-details">
+                        
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+        <div class="py-4 flex justify-center gap-2">
+            <input id="search-input" type="text" placeholder="Search"
+                class="input input-bordered w-full max-w-xs bg-gray-300 border-none" />
             <button onclick="search()" class="btn btn-accent">Search</button>
         </div>
         <section>
             <div id="phone-conteiner" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
+            </div>
+            <div id="show-more" class="my-4 hidden">
+                <div class="flex justify-center items-center">
+                    <button id="show-more-btn" class="btn btn-accent ">Show More</button>
+                </div>
             </div>
         </section>
     </main>
