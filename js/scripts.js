@@ -45,10 +45,17 @@ const loadPhones = (phones) => {
 const allPhones = (phones) => {
     const showMore = document.getElementById("show-more");
     if (phones.length > 6) {
+        document.getElementById("no-phones-found").classList.add("hidden")
         const SlicePhones = phones.slice(0, 6)
         loadPhones(SlicePhones)
         showMore.classList.remove("hidden")
-    } else {
+    }else if(phones.length < 1) {
+        document.getElementById("no-phones-found").classList.remove("hidden")
+        showMore.classList.add("hidden")
+        loadPhones(phones);
+    }
+    else {
+        document.getElementById("no-phones-found").classList.add("hidden")
         loadPhones(phones);
         showMore.classList.add("hidden")
     }
